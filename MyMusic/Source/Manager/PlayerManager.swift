@@ -12,6 +12,22 @@ class PlayerManager {
     
     var player: AVAudioPlayer?
     
+    var isPlaying: Bool? {
+        return player?.isPlaying
+    }
+    
+    func play() {
+        player?.play()
+    }
+    
+    func pause() {
+        player?.pause()
+    }
+    
+    func stop() {
+        player?.stop()
+    }
+    
     func playAudio(trackName: String) {
         let urlString = Bundle.main.path(forResource: trackName, ofType: "mp3")
         
@@ -28,8 +44,8 @@ class PlayerManager {
             guard let player = player else {
                 return
             }
-            
-            player.play()
+            player.volume = 0.5
+            play()
             
         } catch let error {
             print("Error occured: \(error.localizedDescription)")
@@ -38,7 +54,7 @@ class PlayerManager {
     
     func stopAudio() {
         if let player = player {
-            player.stop()
+            stop()
         }
         
     }

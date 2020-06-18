@@ -41,6 +41,37 @@ class HolderView: UIView {
         return label
     }()
     
+    let slider: UISlider = {
+        let slider = UISlider()
+        slider.value = 0.5
+        slider.addTarget(self, action: #selector(didSlideSlider(_ :)), for: .valueChanged)
+        return slider
+    }()
+    
+    let playPauseButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        button.addTarget(self, action: #selector(didTapPlayPauseButton(_ :)), for: .touchUpInside)
+        button.tintColor = .black
+        return button
+    }()
+    
+    let nextButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "forward.fill"), for: .normal)
+        button.addTarget(self, action: #selector(didTapNextButton(_:)), for: .touchUpInside)
+        button.tintColor = .black
+        return button
+    }()
+    
+    let previousButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "backward.fill"), for: .normal)
+        button.addTarget(self, action: #selector(didTapPreviousButton(_:)), for: .touchUpInside)
+        button.tintColor = .black
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configure()
@@ -49,13 +80,6 @@ class HolderView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.configure()
-    }
-    
-    private func configure() {
-        addSubview(albumImageView)
-        addSubview(songNameLabel)
-        addSubview(albumNameLabel)
-        addSubview(artistNameLabel)
     }
     
     override func layoutSubviews() {
@@ -68,7 +92,43 @@ class HolderView: UIView {
         playerManager.stopAudio()
     }
     
-    @objc func stopAudioPlay() {
+    private func configure() {
+        addSubview(albumImageView)
+        addSubview(songNameLabel)
+        addSubview(albumNameLabel)
+        addSubview(artistNameLabel)
+        addSubview(slider)
+        addSubview(playPauseButton)
+        addSubview(nextButton)
+        addSubview(previousButton)
+    }
+    
+    @objc private func didTapPlayPauseButton(_ sender: UIButton) {
+        if playerManager.isPlaying ?? false {
+            let playImage = UIImage(systemName: "play.fill")
+            playPauseButton.setImage(playImage, for: .normal)
+            playerManager.pause()
+        } else {
+            let pauseImage = UIImage(systemName: "pause.fill")
+            playPauseButton.setImage(pauseImage, for: .normal)
+            playerManager.play()
+        }
+    }
+    
+    @objc private func didTapNextButton(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    @objc private func didTapPreviousButton(_ sender: UIButton) {
+        print(#function)
+    }
+    
+    @objc private func didSlideSlider(_ slider: UISlider) {
+        let value = slider.value
+        playerManager.player?.volume = value
+    }
+    
+    @objc private func stopAudioPlay() {
         playerManager.stopAudio()
     }
     
@@ -89,6 +149,25 @@ class HolderView: UIView {
                                       y: albumImageView.frame.size.height + 10 + 70 + 10 + 70 + 10,
                                       width: frame.size.width - 20,
                                       height: 70)
+        slider.frame = CGRect(x: 20,
+                              y: frame.size.height - 60,
+                              width: frame.size.width - 40,
+                              height: 50)
+        
+        let yPosition = artistNameLabel.frame.origin.y + 70 + 20
+        let size: CGFloat = 80.0
+        playPauseButton.frame = CGRect(x: (frame.size.width - size) / 2,
+                                  y: yPosition,
+                                  width: size,
+                                  height: size)
+        nextButton.frame = CGRect(x: frame.size.width - size - 20,
+                                  y: yPosition,
+                                  width: size,
+                                  height: size)
+        previousButton.frame = CGRect(x: 20,
+                                  y: yPosition,
+                                  width: size,
+                                  height: size)
     }
     
     public func bindViews(_ song: Song) {

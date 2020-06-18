@@ -12,6 +12,9 @@ import UIKit
 class HolderView: UIView {
     
     let playerManager = PlayerManager()
+    public var songs: [Song]?
+    var position: Int = 0
+    var totalSongs: Int = 0
         
     let albumImageView: UIImageView = {
         let imageView = UIImageView()
@@ -50,6 +53,7 @@ class HolderView: UIView {
     
     let playPauseButton: UIButton = {
         let button = UIButton()
+        button.isEnabled = true
         button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         button.addTarget(self, action: #selector(didTapPlayPauseButton(_ :)), for: .touchUpInside)
         button.tintColor = .black
@@ -58,6 +62,7 @@ class HolderView: UIView {
     
     let nextButton: UIButton = {
         let button = UIButton()
+        button.isEnabled = true
         button.setImage(UIImage(systemName: "forward.fill"), for: .normal)
         button.addTarget(self, action: #selector(didTapNextButton(_:)), for: .touchUpInside)
         button.tintColor = .black
@@ -66,6 +71,7 @@ class HolderView: UIView {
     
     let previousButton: UIButton = {
         let button = UIButton()
+        button.isEnabled = false
         button.setImage(UIImage(systemName: "backward.fill"), for: .normal)
         button.addTarget(self, action: #selector(didTapPreviousButton(_:)), for: .touchUpInside)
         button.tintColor = .black
@@ -84,12 +90,11 @@ class HolderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setUpUI()
-        
+        enableNextPreviousButton()
     }
     
     deinit {
-        playerManager.stopAudio()
+        playerManager.stop()
     }
     
     private func configure() {
@@ -101,6 +106,8 @@ class HolderView: UIView {
         addSubview(playPauseButton)
         addSubview(nextButton)
         addSubview(previousButton)
+        
+        setUpUI()
     }
     
     @objc private func didTapPlayPauseButton(_ sender: UIButton) {
@@ -108,19 +115,34 @@ class HolderView: UIView {
             let playImage = UIImage(systemName: "play.fill")
             playPauseButton.setImage(playImage, for: .normal)
             playerManager.pause()
+            
+            shrinkImageView()
+            return
+            
         } else {
             let pauseImage = UIImage(systemName: "pause.fill")
             playPauseButton.setImage(pauseImage, for: .normal)
             playerManager.play()
+            
+            expandImageView()
+            return
         }
     }
     
     @objc private func didTapNextButton(_ sender: UIButton) {
-        print(#function)
+        if position < totalSongs - 1 {
+            position += 1
+            bindViews()
+            enableNextPreviousButton()
+        }
     }
     
     @objc private func didTapPreviousButton(_ sender: UIButton) {
-        print(#function)
+        if position > 0 {
+            position -= 1
+            bindViews()
+            enableNextPreviousButton()
+        }
     }
     
     @objc private func didSlideSlider(_ slider: UISlider) {
@@ -129,7 +151,7 @@ class HolderView: UIView {
     }
     
     @objc private func stopAudioPlay() {
-        playerManager.stopAudio()
+        playerManager.stop()
     }
     
     private func setUpUI() {
@@ -150,11 +172,11 @@ class HolderView: UIView {
                                       width: frame.size.width - 20,
                                       height: 70)
         slider.frame = CGRect(x: 20,
-                              y: frame.size.height - 60,
+                              y: frame.size.height - 20,
                               width: frame.size.width - 40,
                               height: 50)
         
-        let yPosition = artistNameLabel.frame.origin.y + 70 + 20
+        let yPosition = frame.size.height - 80
         let size: CGFloat = 80.0
         playPauseButton.frame = CGRect(x: (frame.size.width - size) / 2,
                                   y: yPosition,
@@ -168,10 +190,15 @@ class HolderView: UIView {
                                   y: yPosition,
                                   width: size,
                                   height: size)
+        
     }
     
-    public func bindViews(_ song: Song) {
+    public func bindViews() {
         // set up UI elements
+        guard let songs = songs else {
+            return
+        }
+        let song = songs[position]
     
         albumImageView.image = UIImage(named: song.imageName)
         songNameLabel.text = song.name
@@ -182,5 +209,31 @@ class HolderView: UIView {
         playerManager.playAudio(trackName: song.trackName)
     }
     
+    private func shrinkImageView() {
+        
+        UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+            self.albumImageView.frame = CGRect(x: 30,
+                                               y: 30,
+                                               width: self.width - 60,
+                                               height: self.width - 60)
+        })
+    }
+    
+    private func expandImageView() {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.albumImageView.frame = CGRect(x: 10,
+                                               y: 10,
+                                               width: self.width - 20,
+                                               height: self.width - 20)
+        })
+    }
+    
+    private func enableNextPreviousButton() {
+        nextButton.isEnabled = position < totalSongs - 1
+        previousButton.isEnabled = position > 0
+    }
     
 }
+
+

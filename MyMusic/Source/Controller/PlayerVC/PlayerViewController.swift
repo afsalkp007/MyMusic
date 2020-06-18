@@ -10,7 +10,8 @@ import UIKit
 
 class PlayerViewController: UIViewController {
     
-    public var song: Song?
+    public var songs: [Song]?
+    var position: Int = 0
     
     @IBOutlet weak var holder: HolderView!
     
@@ -22,10 +23,13 @@ class PlayerViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        guard let song = song else {
+        guard let songs = songs else {
             return
         }
-        holder.bindViews(song)
+        holder.totalSongs = songs.count
+        holder.position = position
+        holder.songs = songs
+        holder.bindViews()
     }
 
 }

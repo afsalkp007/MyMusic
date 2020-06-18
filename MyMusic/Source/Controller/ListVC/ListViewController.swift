@@ -28,7 +28,8 @@ class ListViewController: UIViewController, ListTapDelegate {
             return
         }
         
-        vc.song = songs[index]
+        vc.songs = songs
+        vc.position = index
         present(vc, animated: true, completion: nil)
     }
 }

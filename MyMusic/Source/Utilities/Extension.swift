@@ -24,3 +24,14 @@ extension Notification.Name {
     static let audioPlayStop = Notification.Name("audioPlayStop")
 }
 
+extension UIView {
+    
+    var width: CGFloat {
+        return frame.size.width
+    }
+    
+    var height: CGFloat {
+        return frame.size.height
+    }
+}
+

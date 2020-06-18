@@ -51,11 +51,4 @@ class PlayerManager {
             print("Error occured: \(error.localizedDescription)")
         }
     }
-    
-    func stopAudio() {
-        if let player = player {
-            stop()
-        }
-        
-    }
 }

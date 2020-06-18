@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C26D2F06249B334100C680B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D2F05249B334100C680B0 /* AppDelegate.swift */; };
-		C26D2F0A249B334100C680B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D2F09249B334100C680B0 /* ViewController.swift */; };
+		C26D2F0A249B334100C680B0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D2F09249B334100C680B0 /* ListViewController.swift */; };
 		C26D2F0D249B334100C680B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26D2F0B249B334100C680B0 /* Main.storyboard */; };
 		C26D2F0F249B334200C680B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C26D2F0E249B334200C680B0 /* Assets.xcassets */; };
 		C26D2F12249B334200C680B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26D2F10249B334200C680B0 /* LaunchScreen.storyboard */; };
@@ -19,12 +19,15 @@
 		C26E80DD249B4B46007DCFF7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80DC249B4B46007DCFF7 /* Model.swift */; };
 		C26E80DF249B4C2D007DCFF7 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80DE249B4C2D007DCFF7 /* PersistencyManager.swift */; };
 		C26E80E1249B4D71007DCFF7 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80E0249B4D71007DCFF7 /* LibraryAPI.swift */; };
+		C26E80EF249B5A67007DCFF7 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80EE249B5A67007DCFF7 /* PlayerViewController.swift */; };
+		C27CF44D249B611A00EF0AB5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27CF44C249B611A00EF0AB5 /* Extension.swift */; };
+		C27CF44F249B614A00EF0AB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27CF44E249B614A00EF0AB5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C26D2F02249B334100C680B0 /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26D2F05249B334100C680B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C26D2F09249B334100C680B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C26D2F09249B334100C680B0 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C26D2F0C249B334100C680B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C26D2F0E249B334200C680B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C26D2F11249B334200C680B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		C26E80DC249B4B46007DCFF7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C26E80DE249B4C2D007DCFF7 /* PersistencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
 		C26E80E0249B4D71007DCFF7 /* LibraryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
+		C26E80EE249B5A67007DCFF7 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		C27CF44C249B611A00EF0AB5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C27CF44E249B614A00EF0AB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		C26E80E5249B5824007DCFF7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C26E80EB249B5877007DCFF7 /* Storyboard */,
 				C26D2F1F249B349C00C680B0 /* TableView.swift */,
 			);
 			path = View;
@@ -94,16 +101,10 @@
 		C26E80E7249B5830007DCFF7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C26D2F09249B334100C680B0 /* ViewController.swift */,
+				C26D2F09249B334100C680B0 /* ListViewController.swift */,
+				C26E80EE249B5A67007DCFF7 /* PlayerViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		C26E80E8249B5839007DCFF7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C26E80E9249B5846007DCFF7 /* Resource */ = {
@@ -120,10 +121,9 @@
 		C26E80EA249B584C007DCFF7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C27CF44B249B610D00EF0AB5 /* Utilities */,
 				C26E80ED249B58AE007DCFF7 /* Networking */,
 				C26E80EC249B5884007DCFF7 /* App */,
-				C26E80EB249B5877007DCFF7 /* Storyboard */,
-				C26E80E8249B5839007DCFF7 /* ViewModel */,
 				C26E80E7249B5830007DCFF7 /* Controller */,
 				C26E80E5249B5824007DCFF7 /* View */,
 				C26E80E4249B581B007DCFF7 /* Model */,
@@ -155,6 +155,15 @@
 				C26E80E0249B4D71007DCFF7 /* LibraryAPI.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		C27CF44B249B610D00EF0AB5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C27CF44C249B611A00EF0AB5 /* Extension.swift */,
+				C27CF44E249B614A00EF0AB5 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,11 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26E80DF249B4C2D007DCFF7 /* PersistencyManager.swift in Sources */,
-				C26D2F0A249B334100C680B0 /* ViewController.swift in Sources */,
+				C26D2F0A249B334100C680B0 /* ListViewController.swift in Sources */,
 				C26E80E1249B4D71007DCFF7 /* LibraryAPI.swift in Sources */,
+				C26E80EF249B5A67007DCFF7 /* PlayerViewController.swift in Sources */,
 				C26D2F20249B349C00C680B0 /* TableView.swift in Sources */,
 				C26D2F06249B334100C680B0 /* AppDelegate.swift in Sources */,
 				C26E80DD249B4B46007DCFF7 /* Model.swift in Sources */,
+				C27CF44D249B611A00EF0AB5 /* Extension.swift in Sources */,
+				C27CF44F249B614A00EF0AB5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

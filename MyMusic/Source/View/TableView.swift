@@ -8,17 +8,14 @@
 
 import UIKit
 
-protocol CellTapDelegate: class {
-    func didSelectAt(index: Int)
+protocol ListTapDelegate: class {
+    func didSelectAt(index: Int, songs: [Song])
 }
 
 class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    
-    private enum Constants {
-      static let CellIdentifier = "Cell"
-    }
-    
+        
     var songs = [Song]()
+    weak var listTapDelegate: ListTapDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +35,7 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier, for: indexPath)
+        let cell = dequeCell(cellId: Constants.CellIds.listCellId, indexPath: indexPath)
         let song = songs[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = song.name
@@ -49,7 +46,16 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        deselectRow(at: indexPath, animated: true)
+        
+        listTapDelegate?.didSelectAt(index: indexPath.row, songs: songs)
+    }
 }
+
 
 

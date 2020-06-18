@@ -16,6 +16,9 @@
 		C26D2F1D249B341900C680B0 /* song2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C26D2F1A249B341900C680B0 /* song2.mp3 */; };
 		C26D2F1E249B341900C680B0 /* song3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C26D2F1B249B341900C680B0 /* song3.mp3 */; };
 		C26D2F20249B349C00C680B0 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D2F1F249B349C00C680B0 /* TableView.swift */; };
+		C26E80DD249B4B46007DCFF7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80DC249B4B46007DCFF7 /* Model.swift */; };
+		C26E80DF249B4C2D007DCFF7 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80DE249B4C2D007DCFF7 /* PersistencyManager.swift */; };
+		C26E80E1249B4D71007DCFF7 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E80E0249B4D71007DCFF7 /* LibraryAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		C26D2F1A249B341900C680B0 /* song2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song2.mp3; sourceTree = "<group>"; };
 		C26D2F1B249B341900C680B0 /* song3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song3.mp3; sourceTree = "<group>"; };
 		C26D2F1F249B349C00C680B0 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		C26E80DC249B4B46007DCFF7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C26E80DE249B4C2D007DCFF7 /* PersistencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		C26E80E0249B4D71007DCFF7 /* LibraryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +68,93 @@
 		C26D2F04249B334100C680B0 /* MyMusic */ = {
 			isa = PBXGroup;
 			children = (
+				C26E80EA249B584C007DCFF7 /* Source */,
+				C26E80E9249B5846007DCFF7 /* Resource */,
+				C26D2F13249B334200C680B0 /* Info.plist */,
+			);
+			path = MyMusic;
+			sourceTree = "<group>";
+		};
+		C26E80E4249B581B007DCFF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C26E80DC249B4B46007DCFF7 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C26E80E5249B5824007DCFF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C26D2F1F249B349C00C680B0 /* TableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C26E80E7249B5830007DCFF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C26D2F09249B334100C680B0 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C26E80E8249B5839007DCFF7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C26E80E9249B5846007DCFF7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
 				C26D2F19249B341900C680B0 /* song1.mp3 */,
 				C26D2F1A249B341900C680B0 /* song2.mp3 */,
 				C26D2F1B249B341900C680B0 /* song3.mp3 */,
-				C26D2F05249B334100C680B0 /* AppDelegate.swift */,
-				C26D2F09249B334100C680B0 /* ViewController.swift */,
-				C26D2F0B249B334100C680B0 /* Main.storyboard */,
 				C26D2F0E249B334200C680B0 /* Assets.xcassets */,
-				C26D2F10249B334200C680B0 /* LaunchScreen.storyboard */,
-				C26D2F13249B334200C680B0 /* Info.plist */,
-				C26D2F1F249B349C00C680B0 /* TableView.swift */,
 			);
-			path = MyMusic;
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C26E80EA249B584C007DCFF7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C26E80ED249B58AE007DCFF7 /* Networking */,
+				C26E80EC249B5884007DCFF7 /* App */,
+				C26E80EB249B5877007DCFF7 /* Storyboard */,
+				C26E80E8249B5839007DCFF7 /* ViewModel */,
+				C26E80E7249B5830007DCFF7 /* Controller */,
+				C26E80E5249B5824007DCFF7 /* View */,
+				C26E80E4249B581B007DCFF7 /* Model */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C26E80EB249B5877007DCFF7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C26D2F0B249B334100C680B0 /* Main.storyboard */,
+				C26D2F10249B334200C680B0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C26E80EC249B5884007DCFF7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C26D2F05249B334100C680B0 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C26E80ED249B58AE007DCFF7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C26E80DE249B4C2D007DCFF7 /* PersistencyManager.swift */,
+				C26E80E0249B4D71007DCFF7 /* LibraryAPI.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C26E80DF249B4C2D007DCFF7 /* PersistencyManager.swift in Sources */,
 				C26D2F0A249B334100C680B0 /* ViewController.swift in Sources */,
+				C26E80E1249B4D71007DCFF7 /* LibraryAPI.swift in Sources */,
 				C26D2F20249B349C00C680B0 /* TableView.swift in Sources */,
 				C26D2F06249B334100C680B0 /* AppDelegate.swift in Sources */,
+				C26E80DD249B4B46007DCFF7 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

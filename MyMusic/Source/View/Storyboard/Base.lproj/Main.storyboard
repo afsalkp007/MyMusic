@@ -71,9 +71,24 @@
                     <view key="view" contentMode="scaleToFill" id="8AE-RR-7iN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-AX-GS7" customClass="HolderView" customModule="MyMusic" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CvW-tA-NJT" firstAttribute="bottom" secondItem="9bK-AX-GS7" secondAttribute="bottom" id="QjE-VJ-QvA"/>
+                            <constraint firstItem="9bK-AX-GS7" firstAttribute="leading" secondItem="CvW-tA-NJT" secondAttribute="leading" id="Rwp-U2-btb"/>
+                            <constraint firstItem="CvW-tA-NJT" firstAttribute="trailing" secondItem="9bK-AX-GS7" secondAttribute="trailing" id="XWO-89-G6q"/>
+                            <constraint firstItem="9bK-AX-GS7" firstAttribute="top" secondItem="CvW-tA-NJT" secondAttribute="top" id="ZwT-qX-tFM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CvW-tA-NJT"/>
                     </view>
+                    <connections>
+                        <outlet property="holder" destination="9bK-AX-GS7" id="cQA-b3-poe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rd1-e6-U6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

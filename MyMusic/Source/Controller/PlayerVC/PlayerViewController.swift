@@ -13,21 +13,17 @@ class PlayerViewController: UIViewController {
     public var position: Int = 0
     public var songs: [Song] = []
     
-    @IBOutlet weak var holder: UIView!
-
+    @IBOutlet weak var holder: HolderView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        configure()
-    }
-    
-    private func configure() {
-        
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let song = songs[position]
+        holder.bindViews(song)
     }
 
 }

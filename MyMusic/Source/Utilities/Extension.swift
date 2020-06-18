@@ -20,3 +20,7 @@ extension UITableView {
     }
 }
 
+extension Notification.Name {
+    static let audioPlayStop = Notification.Name("audioPlayStop")
+}
+

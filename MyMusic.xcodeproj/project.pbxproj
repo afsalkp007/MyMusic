@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23D2BF1249B76B20099BA6F /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23D2BF0249B76B20099BA6F /* HolderView.swift */; };
+		C23D2BF4249B8CF30099BA6F /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23D2BF3249B8CF30099BA6F /* PlayerManager.swift */; };
 		C26D2F06249B334100C680B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D2F05249B334100C680B0 /* AppDelegate.swift */; };
 		C26D2F0A249B334100C680B0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D2F09249B334100C680B0 /* ListViewController.swift */; };
 		C26D2F0D249B334100C680B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26D2F0B249B334100C680B0 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C23D2BF0249B76B20099BA6F /* HolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
+		C23D2BF3249B8CF30099BA6F /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		C26D2F02249B334100C680B0 /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26D2F05249B334100C680B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C26D2F09249B334100C680B0 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C23D2BEF249B769A0099BA6F /* PlayerVC */ = {
+			isa = PBXGroup;
+			children = (
+				C23D2BF0249B76B20099BA6F /* HolderView.swift */,
+			);
+			path = PlayerVC;
+			sourceTree = "<group>";
+		};
+		C23D2BF2249B8CE50099BA6F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C23D2BF3249B8CF30099BA6F /* PlayerManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		C26D2EF9249B334000C680B0 = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +112,9 @@
 		C26E80E5249B5824007DCFF7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C23D2BEF249B769A0099BA6F /* PlayerVC */,
+				C27CF454249B69A800EF0AB5 /* ListVC */,
 				C26E80EB249B5877007DCFF7 /* Storyboard */,
-				C26D2F1F249B349C00C680B0 /* TableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,8 +122,8 @@
 		C26E80E7249B5830007DCFF7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C26D2F09249B334100C680B0 /* ListViewController.swift */,
-				C26E80EE249B5A67007DCFF7 /* PlayerViewController.swift */,
+				C27CF453249B699800EF0AB5 /* PlayerVC */,
+				C27CF452249B698D00EF0AB5 /* ListVC */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,6 +142,7 @@
 		C26E80EA249B584C007DCFF7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C23D2BF2249B8CE50099BA6F /* Manager */,
 				C27CF44B249B610D00EF0AB5 /* Utilities */,
 				C26E80ED249B58AE007DCFF7 /* Networking */,
 				C26E80EC249B5884007DCFF7 /* App */,
@@ -164,6 +186,30 @@
 				C27CF44E249B614A00EF0AB5 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C27CF452249B698D00EF0AB5 /* ListVC */ = {
+			isa = PBXGroup;
+			children = (
+				C26D2F09249B334100C680B0 /* ListViewController.swift */,
+			);
+			path = ListVC;
+			sourceTree = "<group>";
+		};
+		C27CF453249B699800EF0AB5 /* PlayerVC */ = {
+			isa = PBXGroup;
+			children = (
+				C26E80EE249B5A67007DCFF7 /* PlayerViewController.swift */,
+			);
+			path = PlayerVC;
+			sourceTree = "<group>";
+		};
+		C27CF454249B69A800EF0AB5 /* ListVC */ = {
+			isa = PBXGroup;
+			children = (
+				C26D2F1F249B349C00C680B0 /* TableView.swift */,
+			);
+			path = ListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,9 +288,11 @@
 			files = (
 				C26E80DF249B4C2D007DCFF7 /* PersistencyManager.swift in Sources */,
 				C26D2F0A249B334100C680B0 /* ListViewController.swift in Sources */,
+				C23D2BF1249B76B20099BA6F /* HolderView.swift in Sources */,
 				C26E80E1249B4D71007DCFF7 /* LibraryAPI.swift in Sources */,
 				C26E80EF249B5A67007DCFF7 /* PlayerViewController.swift in Sources */,
 				C26D2F20249B349C00C680B0 /* TableView.swift in Sources */,
+				C23D2BF4249B8CF30099BA6F /* PlayerManager.swift in Sources */,
 				C26D2F06249B334100C680B0 /* AppDelegate.swift in Sources */,
 				C26E80DD249B4B46007DCFF7 /* Model.swift in Sources */,
 				C27CF44D249B611A00EF0AB5 /* Extension.swift in Sources */,

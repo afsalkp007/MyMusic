@@ -12,7 +12,7 @@ protocol ListTapDelegate: class {
     func didSelectAt(index: Int, songs: [Song])
 }
 
-class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+@IBDesignable class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         
     var songs = [Song]()
     weak var listTapDelegate: ListTapDelegate?
